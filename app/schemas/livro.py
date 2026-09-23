@@ -11,3 +11,12 @@ class LivroSchema(BaseModel):
         max_length=100,
     )
     ano_publicacao: int
+
+class LivroCreate(LivroSchema):
+    pass
+
+class LivroResponse(LivroSchema):
+    id: int
+
+    class Config:
+        from_attributes = True
