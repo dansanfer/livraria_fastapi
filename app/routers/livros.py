@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from app.schemas.livro import LivroSchema
 from app.database.connection import SessionLocal
 from app.database.models import LivroModel
@@ -6,6 +6,7 @@ from app.schemas.livro import LivroCreate
 
 from app.database.connection import get_db
 from app.services import livro_service
+from sqlalchemy.orm import Session
 
 router = APIRouter(
     prefix="/livros",

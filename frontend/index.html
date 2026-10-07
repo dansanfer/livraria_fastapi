@@ -8,8 +8,31 @@
 
 </head>
 <body>
+
+    <section class="container">
+        <h1> Biblioteca Do Camundongo</h1>
+
+        <div class="card">
+            <h2>Novo Livro</h2>
+
+            <form id="formLivro">
+                <input type="text" id="titulo" placeholder="Título do Livro" required>
+
+                <input type="text" id="autor" placeholder="Autor do Livro" required>
+
+                <input type="number" id="ano_publicacao" placeholder="Ano de Publicação" required>
+
+                <button type="submit">Adicionar Livro</button>
+
+            </form>
+
+        </div class="card">
+            <h2>Lista de Livros</h2>
+            <div id="LivrosList"></div>
+        </div>
+
+    </section>
     
-    <h2>Aula</h2>
 
     <script src="js/script.js"></script>
 </body>
