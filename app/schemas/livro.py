@@ -1,21 +1,17 @@
 from pydantic import BaseModel, Field
 
-class LivroSchema(BaseModel):
-    id: int
-    titulo: str = Field(
-        min_length=3,
-        max_length=100,
-    )
-    autor: str = Field(
-        min_length=3,
-        max_length=100,
-    )
+# Schema base com os campos comuns de dados do livro
+class LivroBase(BaseModel):
+    titulo: str = Field(min_length=3, max_length=100)
+    autor: str = Field(min_length=3, max_length=100)
     ano_publicacao: int
 
-class LivroCreate(LivroSchema):
+# Schema para CRIAR (POST): Não exige o ID, pois o banco gera sozinho
+class LivroCreate(LivroBase):
     pass
 
-class LivroResponse(LivroSchema):
+# Schema para RESPONDER (GET, POST response): Inclui o ID gerado pelo banco
+class LivroResponse(LivroBase):
     id: int
 
     class Config:
